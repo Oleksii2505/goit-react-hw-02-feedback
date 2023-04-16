@@ -1,15 +1,15 @@
 import PropTypes from 'prop-types';
-import { StatisticsWrapper, StatisticsOptionName } from './Statistics.styled';
+import { StatisticsBlock, StatisticsOptionName } from './Statistics.styled';
 
 export const Statistics = ({good, neutral, bad, total, positivePercentage}) => {
     return (
-       <StatisticsWrapper>
+       <StatisticsBlock>
        <StatisticsOptionName>Good: {good}</StatisticsOptionName>
        <StatisticsOptionName>Neutral: {neutral}</StatisticsOptionName>
        <StatisticsOptionName>Bad: {bad}</StatisticsOptionName> 
        <StatisticsOptionName>Total: {total}</StatisticsOptionName>
        <StatisticsOptionName>Positive feedback: {positivePercentage}%</StatisticsOptionName>    
-       </StatisticsWrapper>
+       </StatisticsBlock>
     )
 }
 
