@@ -11,11 +11,11 @@ export class App extends Component {
         bad: 0
       }
 
-    addFeedback  = (event) => {
+    addFeedback  = (option) => {
         this.setState(prevState => {
-          const {name} = event.target.dataset;
+          // const {name} = event.target.dataset;
             return {
-                [name]: prevState[name] + 1,
+                [option]: prevState[option] + 1,
             };
         }) 
     }
@@ -35,6 +35,9 @@ export class App extends Component {
         const {good, neutral, bad} = this.state;
     const options = Object.keys(this.state);
     const {addFeedback, countTotalFeedback, countPositiveFeedbackPercentage} = this;
+    const total = countTotalFeedback();
+    const positivePercentage = countPositiveFeedbackPercentage();
+
     return (
         <>
   
@@ -45,15 +48,15 @@ export class App extends Component {
           />
         </Section>
         <Section title="Statistics">
-          { !countTotalFeedback() ? (
+          { !total ? (
             <Notification message="There is no feedback" /> 
           ) : (
             <Statistics
             good={good}
             neutral={neutral}
             bad={bad}
-            total={countTotalFeedback()}
-            positivePercentage={countPositiveFeedbackPercentage()}
+            total={total}
+            positivePercentage={positivePercentage}
             />
           )
           }
